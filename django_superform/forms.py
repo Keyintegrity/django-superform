@@ -75,18 +75,16 @@ You're welcome.
 
 """
 
-from functools import reduce
-from django import forms
-from django.forms.forms import DeclarativeFieldsMetaclass, ErrorDict, ErrorList
-from django.forms.models import ModelFormMetaclass
 import copy
+from collections import OrderedDict
+from functools import reduce
+
+from django import forms
+from django.forms.forms import DeclarativeFieldsMetaclass
+from django.forms.models import ModelFormMetaclass
+from django.forms.utils import ErrorDict, ErrorList
 
 from .fields import CompositeField
-
-try:
-    from collections import OrderedDict
-except ImportError:
-    from django.utils.datastructures import SortedDict as OrderedDict
 
 
 class DeclerativeCompositeFieldsMetaclass(type):

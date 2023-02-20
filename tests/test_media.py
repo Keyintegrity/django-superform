@@ -1,5 +1,5 @@
 from django import forms
-from django.forms.formsets import formset_factory
+from django.forms import formset_factory
 from django.test import TestCase
 from django_superform import SuperForm, FormSetField
 

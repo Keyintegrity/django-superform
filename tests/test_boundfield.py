@@ -1,6 +1,5 @@
 from django import forms
-from django.forms import BoundField
-from django.forms.formsets import formset_factory
+from django.forms import BoundField, formset_factory
 from django.test import TestCase
 from django_superform import FormField
 from django_superform import FormSetField

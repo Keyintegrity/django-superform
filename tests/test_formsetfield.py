@@ -1,4 +1,4 @@
-from django.forms.models import modelformset_factory
+from django.forms import modelformset_factory
 from django.template import Context, Template
 from django.test import TestCase
 from django_superform import SuperModelForm, ModelFormSetField, InlineFormSetField
