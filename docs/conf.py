@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # django-superform documentation build configuration file, created by
 # sphinx-quickstart on Fri Nov  7 10:47:24 2014.
@@ -59,9 +58,11 @@ copyright = str(date.today().year) + u', Gregor Müllegger'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 
+
 def read(*parts):
     return codecs.open(path.join(path.dirname(__file__), *parts),
                        encoding='utf-8').read()
+
 
 def find_version(*file_paths):
     version_file = read(*file_paths)
@@ -69,7 +70,9 @@ def find_version(*file_paths):
                               version_file, re.M)
     if version_match:
         return version_match.group(1)
+
     raise RuntimeError("Unable to find version string.")
+
 
 version_tuple = find_version(
     path.join(project_base_path, 'django_superform', '__init__.py')).split('.')
