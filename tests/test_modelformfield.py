@@ -15,6 +15,8 @@ class UseFirstModelFormField(ModelFormField):
 
 
 class SeriesForm(forms.ModelForm):
+    use_required_attribute = False
+
     class Meta:
         model = Series
         fields = ('title',)

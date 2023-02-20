@@ -34,7 +34,7 @@ class CompositeBoundFieldTests(TestCase):
         form = AccountForm()
         bf = form['emails']
         self.assertTrue(isinstance(bf, CompositeBoundField))
-        self.assertEqual(len(bf), 0)
+        self.assertEqual(len(bf), 1)
         self.assertEqual(bool(bf), True)
 
     def test_it_is_nonzero_for_filled_formsets(self):
