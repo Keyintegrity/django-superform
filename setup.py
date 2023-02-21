@@ -25,7 +25,7 @@ setup(
     version=find_version('django_superform', '__init__.py'),
     author=u'Gregor Müllegger',
     author_email='gregor@muellegger.de',
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     include_package_data=True,
     url='https://github.com/gregmuellegger/django-superform',
     license='BSD licence, see LICENSE file',
