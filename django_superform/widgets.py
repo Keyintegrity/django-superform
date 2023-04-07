@@ -1,5 +1,4 @@
 from django import forms
-from django.template import loader
 
 
 class TemplateWidget(forms.Widget):
@@ -22,31 +21,28 @@ class TemplateWidget(forms.Widget):
     def get_context_data(self):
         return {}
 
-    def get_context(self, name, value, attrs=None, **kwargs):
-        context = {
-            'name': name,
-            'hidden': self.is_hidden,
-            'required': self.is_required,
-            # In our case ``value`` is the form or formset instance.
-            'value': value,
-        }
-        if self.value_context_name:
-            context[self.value_context_name] = value
+    def format_value(self, value):
+        return value
 
-        if self.is_hidden:
-            context['hidden'] = True
+    def get_context(self, name, value, attrs):
+        context = super().get_context(name, value, attrs)
+
+        widget_context = context['widget']
+        context.update({
+            'name': widget_context['name'],
+            'hidden': widget_context['is_hidden'],
+            'required': widget_context['required'],
+            # In our case ``value`` is the form or formset instance.
+            'value': widget_context['value'],
+            'attrs': widget_context['attrs'],
+        })
+
+        if self.value_context_name:
+            context[self.value_context_name] = widget_context['value']
 
         context.update(self.get_context_data())
-        context['attrs'] = self.build_attrs(attrs)
 
         return context
-
-    def render(self, name, value, attrs=None, **kwargs):
-        template_name = kwargs.pop('template_name', None)
-        if template_name is None:
-            template_name = self.template_name
-        context = self.get_context(name, value, attrs=attrs or {}, **kwargs)
-        return loader.render_to_string(template_name, context)
 
 
 class FormWidget(TemplateWidget):

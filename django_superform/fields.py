@@ -1,4 +1,4 @@
-from django.forms.models import inlineformset_factory
+from django.forms import inlineformset_factory
 
 from .boundfield import CompositeBoundField
 from .widgets import FormWidget, FormSetWidget

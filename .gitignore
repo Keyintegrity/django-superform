@@ -1,12 +1,14 @@
 *.pyc
-/docs/_build/
-/.tox/
-/dist/
-/django_superform.egg-info/
-/.cache/
+
+/.cache
 /.coverage*
+/.tox
+/build
+/dist
+/django_superform.egg-info
+/docs/_build
 
 /.idea
-/.settings
 /.project
 /.pydevproject
+/.settings

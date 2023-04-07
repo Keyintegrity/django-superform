@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import codecs
 import re
 from os import path
@@ -17,6 +16,7 @@ def find_version(*file_paths):
                               version_file, re.M)
     if version_match:
         return version_match.group(1)
+
     raise RuntimeError("Unable to find version string.")
 
 
@@ -25,7 +25,7 @@ setup(
     version=find_version('django_superform', '__init__.py'),
     author=u'Gregor Müllegger',
     author_email='gregor@muellegger.de',
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     include_package_data=True,
     url='https://github.com/gregmuellegger/django-superform',
     license='BSD licence, see LICENSE file',
@@ -37,22 +37,21 @@ setup(
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 1.4',
-        'Framework :: Django :: 1.6',
-        'Framework :: Django :: 1.7',
-        'Framework :: Django :: 1.8',
-        'Framework :: Django :: 1.9',
-        'Framework :: Django :: 1.10',
+        'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.1',
+        'Framework :: Django :: 3.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     zip_safe=False,
 )
